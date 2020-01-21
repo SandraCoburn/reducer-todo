@@ -4,8 +4,8 @@ export const todoReducer = (state, action) => {
     case "TOGGLE_TASK":
       return {
         ...state,
-        toDoList: state.toDoList.map(task => {
-          if (task.id === toDoList.id) {
+        taskList: state.taskList.map(task => {
+          if (task.id === taskList.id) {
             return {
               ...task,
               completed: !task.completed
@@ -18,7 +18,7 @@ export const todoReducer = (state, action) => {
     case "CLEAR_COMPLETED":
       return {
         ...state,
-        toDoList: state.toDoList.filter(task => task.completed === false)
+        taskList: state.taskList.filter(task => task.completed === false)
       };
     case "ADD_TODO":
       const newItem = {
@@ -28,14 +28,14 @@ export const todoReducer = (state, action) => {
       };
       return {
         ...state,
-        toDoList: [...state, toDoList, action.payload]
+        toDoList: [...state, taskList, action.payload]
       };
     default:
       return state;
   }
 };
 
-export const toDoList = [
+export const taskList = [
   {
     task: "Make todo list",
     completed: false,

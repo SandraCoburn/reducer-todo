@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 const TodoForm = ({ state, dispatch }) => {
   const [todoText, setTodoText] = useState("");
 
@@ -15,7 +16,7 @@ const TodoForm = ({ state, dispatch }) => {
     });
   };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="item"

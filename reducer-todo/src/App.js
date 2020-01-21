@@ -1,30 +1,22 @@
 import React, { useReducer } from "react";
 import TodoForm from "./components/TodoForm";
-import { todoReducer, toDoList } from "./reducers/todoReducer";
+import TodoList from "./components/TodoList";
+import { todoReducer, taskList } from "./reducers/todoReducer";
 
 import "./App.css";
 
-const initialState = toDoList;
+const initialState = taskList;
 
 function App() {
-  const [state, dispatch] = useReducer(todoReducer, toDoList);
+  const [state, dispatch] = useReducer(todoReducer, taskList);
 
-  // togleItem = id => {
-  //   const newTodoList = state.initialState.map(item => {
-  //     if (item.id === id) {
-  //       return {
-  //         ...DataTransferItemList,
-  //         completed: !item.completed
-  //       }
-  //     }
-  //   })
-  // }
   return (
     <div className="App">
       <div className="header">
         <h1>To do list:</h1>
         <TodoForm state={state} dispatch={dispatch} />
       </div>
+      <TodoList taskList={initialState} dispatch={dispatch} />
     </div>
   );
 }
