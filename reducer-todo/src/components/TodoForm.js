@@ -7,14 +7,7 @@ const TodoForm = ({ state, dispatch }) => {
   const handleChanges = event => {
     setTodoText(event.target.value);
   };
-  //   const handleSubmit = () => {
-  //     // event.preventDefault();
-  //     dispatch({ type: "ADD_TODO", payload: todoText });
-  //     console.log("this is", todoText);
-  //     setTodoText({
-  //       todoText: ""
-  // });
-  //   };
+
   return (
     <form autoComplete="off">
       <input
@@ -27,6 +20,7 @@ const TodoForm = ({ state, dispatch }) => {
       <button
         type="button"
         onClick={() => dispatch({ type: "ADD_TODO", payload: todoText })}
+        // {...(todoText ? setTodoText("") : null)}
       >
         Add Todo
       </button>

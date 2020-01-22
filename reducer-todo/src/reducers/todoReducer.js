@@ -4,7 +4,6 @@ export const todoReducer = (state, action) => {
     case "TOGGLE_TASK":
       return {
         ...state,
-
         todos: state.todos.map(task => {
           console.log("task id", task.id);
           console.log("action id", action.payload);

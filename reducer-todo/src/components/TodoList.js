@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = ({ state, dispatch }) => {
-  //   const sortedList = state.sort((a, b) => a.completed - b.completed);
+  const sortedList = state.todos.sort((a, b) => a.completed - b.completed);
 
   return (
     <div className="todo-list">
