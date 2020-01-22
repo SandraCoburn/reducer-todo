@@ -4,8 +4,12 @@ export const todoReducer = (state, action) => {
     case "TOGGLE_TASK":
       return {
         ...state,
-        taskList: state.taskList.map(task => {
-          if (task.id === taskList.id) {
+
+        todos: state.todos.map(task => {
+          console.log("task id", task.id);
+          console.log("action id", action.payload);
+          if (task.id === action.payload) {
+            console.log("im in here");
             return {
               ...task,
               completed: !task.completed
@@ -18,43 +22,45 @@ export const todoReducer = (state, action) => {
     case "CLEAR_COMPLETED":
       return {
         ...state,
-        taskList: state.taskList.filter(task => task.completed === false)
+        todos: state.todos.filter(todo => todo.completed === false)
       };
     case "ADD_TODO":
-      const newItem = {
-        task: newItem,
-        id: Date.now(),
-        completed: false
+      console.log(action.payload);
+      const newTodo = {
+        task: action.payload,
+        completed: false,
+        id: Date.now()
       };
       return {
         ...state,
-        toDoList: [...state, taskList, action.payload]
+        todos: [...state.todos, newTodo]
       };
     default:
       return state;
   }
 };
 
-export const taskList = [
-  {
-    task: "Make todo list",
-    completed: false,
-    id: 123
-  },
-  {
-    task: "Update todo list",
-    completed: false,
-    id: 124
-  },
-  {
-    task: "Delete todo list",
-    completed: false,
-    id: 125
-  },
-  {
-    task: "Re do todo list",
-
-    completed: false,
-    id: 126
-  }
-];
+export const initialState = {
+  todos: [
+    {
+      task: "Make todo list",
+      completed: false,
+      id: 123
+    },
+    {
+      task: "Update todo list",
+      completed: false,
+      id: 124
+    },
+    {
+      task: "Delete todo list",
+      completed: false,
+      id: 125
+    },
+    {
+      task: "Re do todo list",
+      completed: false,
+      id: 126
+    }
+  ]
+};

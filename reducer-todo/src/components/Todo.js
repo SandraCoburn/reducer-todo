@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ key, item, dispatch }) => {
+const Todo = ({ item, dispatch }) => {
   const completedStyle = {
     fontSyle: "italic",
     color: "#cdcdcd",
@@ -10,7 +10,7 @@ const Todo = ({ key, item, dispatch }) => {
   return (
     <div
       className={`item${item.completed ? " completed" : ""}`}
-      onClick={() => dispatch({ type: "TOGGLE_TASK", payload: key })}
+      onClick={() => dispatch({ type: "TOGGLE_TASK", payload: item.id })}
     >
       <input type="checkbox" checked={item.completed} />
       <p style={item.completed ? completedStyle : null}>{item.task}</p>
